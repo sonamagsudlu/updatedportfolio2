@@ -1,46 +1,74 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-
-    <title>About Me</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Sona Portfolio</title>
+    <style>
+        .jumbotron{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    </style>
 </head>
 
 <body>
-    <header class='masthead'>
-        <p class='masthead-intro'>Hi I'm</p>
-        <h1 class='masthead-heading'>Sona Magsudlu</h1>
-    </header>
-    <section class="container">
+    <nav class="navbar navbar-light bg-light " style='padding:10px;'>
+        <a class="navbar-brand" href="">Sona's Portfolio</a>
+        <a class="navbar-brand" href="https://www.linkedin.com/in/sona-magsudlu-8b8a811a/de">LinkedIn</a>
+        <a class="navbar-brand" href="https://github.com/sonamagsudlu">Github</a>
+    </nav>
+    <div class='jumbotron' style='background-color: black;'>
+        <div class='wrapper'></div>
+        <img src='sona-resume.png' alt ='resume' height=600/>
+    </div>
+    <footer class="page-footer font-small blue">
 
-      <h1 class='jumbotron'>Introduction</h1>
-      <ul class='list-group'>
-      <li class='list-group-item'>I am 37 years old</li>
-      <li class='list-group-item'>Where I'm from</li>
-      <li class='list-group-item'>Baku-Azerbaijan</li>
-      <li class='list-group-item'>What are your favorite hobbies?</li>
-      <li class='list-group-item'>I love travelling, reading,cooking and baking</li>
-      <li class='list-group-item'>What's your dream job?</li>
-      <li class='list-group-item'>Software develolier</li>
-      <li class='list-group-item'>Where do you live?</li>
-      <li class='list-group-item'>Norwalk,CT</li>
-      <li class='list-group-item'>Why do you want to be a web developer?</li>
-      <li class='list-group-item'>Enjoy creating things</li>
-    </ul>
-    </section>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">Contact:
+          <a href="mailto:magsudlu@gmail.com"> Email</a>
+        </div>
+    
+      </footer>    
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+        class Card {
+            constructor(project) {
+                this.project = project,
+                this.initiate=function () {
+                    const $container = document.querySelector('.wrapper')
+                    $container.style='margin:0;background-color:black;'
+                    const $divOne =  document.createElement('DIV')
+                    $divOne.classList='card'
+                    $divOne.setAttribute('style', 'width: 18rem; padding:15px;margin:10px;')
+                    $divOne.addEventListener('mouseenter', function(){
+                        $divOne.style='color:dodgerblue;width: 18rem; padding:15px;cursor:pointer;'
+                            $divOne.addEventListener('mouseleave', function(){
+                            $divOne.style='color:black;width: 18rem; padding:15px;margin:10px;'
+                        });
+                    });
 
-    <footer id="footer">
-        <ul class="social">
-          <li><a href="http://www.github.com/sonamagsudlu">Github</a></li>
-          <!-- <li><a href="http://www.github.com/sonamagsudlu">LinkedIn</a></li> -->
-        </ul>
-    </footer>
+                    const $title = document.createElement('H3')
+                    const  $button = document.createElement('BUTTON')
+                    $title.textContent=this.project
+                    $button.appendChild($title)
+                    $button.classList='btn btn-light'
+                    $divOne.appendChild($button)
+                    return $container.appendChild($divOne)
+                    }
+            }
+        }
+  
+            const data = ['Updated Portfolio', 'Budget App', 'Note Taker', 'data4', 'data5', 'data6']
+            data.forEach(item =>{ 
+               let $create =  new Card(item)
+               $create.initiate()
+
+            })
+    </script>
 </body>
 
 </html>
